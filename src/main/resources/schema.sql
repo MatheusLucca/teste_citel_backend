@@ -1,0 +1,27 @@
+
+CREATE TABLE IF NOT EXISTS doadores (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL COMMENT 'Nome completo do doador',
+    cpf VARCHAR(14) NOT NULL UNIQUE COMMENT 'CPF do doador (formato: 000.000.000-00)',
+    rg VARCHAR(20) NOT NULL COMMENT 'RG do doador',
+    data_nascimento DATE NOT NULL COMMENT 'Data de nascimento do doador',
+    sexo VARCHAR(20) NOT NULL COMMENT 'Sexo do doador (Masculino/Feminino)',
+    mae VARCHAR(255) NOT NULL COMMENT 'Nome da mãe do doador',
+    pai VARCHAR(255) COMMENT 'Nome do pai do doador',
+    email VARCHAR(255) NOT NULL COMMENT 'Endereço de e-mail do doador',
+    cep VARCHAR(9) NOT NULL COMMENT 'CEP do endereço do doador',
+    endereco VARCHAR(255) NOT NULL COMMENT 'Logradouro do endereço do doador',
+    numero INTEGER NOT NULL COMMENT 'Número do endereço do doador',
+    bairro VARCHAR(100) NOT NULL COMMENT 'Bairro do endereço do doador',
+    cidade VARCHAR(100) NOT NULL COMMENT 'Cidade do endereço do doador',
+    estado VARCHAR(2) NOT NULL COMMENT 'Estado (UF) do endereço do doador',
+    telefone_fixo VARCHAR(20) COMMENT 'Número de telefone fixo do doador',
+    celular VARCHAR(20) NOT NULL COMMENT 'Número de celular do doador',
+    altura DOUBLE NOT NULL COMMENT 'Altura do doador em metros',
+    peso DOUBLE NOT NULL COMMENT 'Peso do doador em quilogramas',
+    tipo_sanguineo VARCHAR(3) NOT NULL COMMENT 'Tipo sanguíneo do doador',
+    INDEX idx_doadores_nome (nome),
+    INDEX idx_doadores_tipo_sanguineo (tipo_sanguineo),
+    INDEX idx_doadores_cidade_estado (cidade, estado),
+    INDEX idx_doadores_cpf (cpf)
+    );
